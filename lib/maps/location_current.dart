@@ -1,11 +1,11 @@
 import 'package:after_layout/after_layout.dart';
-import 'package:final_year_project/maps/maps_screen.dart';
+// import 'package:final_year_project/maps/maps_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
+// import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 
 import './location_helper.dart';
-import './maps_screen.dart';
+// import './maps_screen.dart';
 
 class CurrentLocation extends StatefulWidget {
   final Function onSelectPlace;

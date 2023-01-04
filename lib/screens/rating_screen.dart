@@ -56,7 +56,7 @@ class _RatingCardState extends State<RatingCard> {
         title: Text('An Error Occurred!'),
         content: Text(message),
         actions: <Widget>[
-          FlatButton(
+          TextButton(
             child: Text('Okay'),
             onPressed: () {
               Navigator.of(ctx).pop();
@@ -195,37 +195,44 @@ class _RatingCardState extends State<RatingCard> {
                           if (_isLoading)
                             CircularProgressIndicator()
                           else
-                            RaisedButton(
-                              child: Text('Submit'),
-                              onPressed: () async {
-                                 user.updateRating(techid, ratings);
-                                user.updatevar(jobId);
-                                showDialog(
-                                    context: context,
-                                    builder: (context) => AlertDialog(
-                                          title: Text('User Information'),
-                                          content: Text('Data Added!'),
-                                          actions: <Widget>[
-                                            FlatButton(
-                                              child: Text('Okay'),
-                                              onPressed: () {
-                                                Navigator.of(context).pushReplacement(MaterialPageRoute(builder:(context)=>TaskScreen()));
-                                              },
-                                            )
-                                          ],
-                                        ));
-                                //  Navigator.of(context).pop();
-                              },
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
+                            Padding(
                               padding: EdgeInsets.symmetric(
                                   horizontal: 30.0, vertical: 8.0),
-                              color: Theme.of(context).primaryColor,
-                              textColor: Theme.of(context)
-                                  .primaryTextTheme
-                                  .button
-                                  .color,
+
+                              child: ElevatedButton(
+                                child: Text('Submit',
+                                style: TextStyle(color:Theme.of(context)
+                                    .primaryTextTheme
+                                    .button
+                                    .color,
+                                backgroundColor:Theme.of(context).primaryColor,
+                                ),),
+                                onPressed: () async {
+                                   user.updateRating(techid, ratings);
+                                  user.updatevar(jobId);
+                                  showDialog(
+                                      context: context,
+                                      builder: (context) => AlertDialog(
+                                            title: Text('User Information'),
+                                            content: Text('Data Added!'),
+                                            actions: <Widget>[
+                                              TextButton(
+                                                child: Text('Okay'),
+                                                onPressed: () {
+                                                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder:(context)=>TaskScreen()));
+                                                },
+                                              )
+                                            ],
+                                          ));
+                                  //  Navigator.of(context).pop();
+                                },
+                                // shape: RoundedRectangleBorder(
+                                //   borderRadius: BorderRadius.circular(30),
+                                // ),
+
+
+
+                              ),
                             ),
                         ],
                       ),

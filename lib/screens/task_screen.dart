@@ -143,7 +143,7 @@ class _TaskScreenState extends State<TaskScreen> {
                           fit: BoxFit.contain),
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12)),
-                  child: FlatButton(
+                  child: TextButton(
                       onPressed: () {
                         Navigator.of(context).push(
                           MaterialPageRoute(
@@ -165,7 +165,7 @@ class _TaskScreenState extends State<TaskScreen> {
                           fit: BoxFit.contain),
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12)),
-                  child: FlatButton(onPressed: () {
+                  child: TextButton(onPressed: () {
                     Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) =>AC(fcm),
@@ -190,7 +190,7 @@ class _TaskScreenState extends State<TaskScreen> {
                           fit: BoxFit.contain),
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12)),
-                  child: FlatButton(onPressed: () {
+                  child: TextButton(onPressed: () {
                     Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) => Electrical(fcm),
@@ -210,7 +210,7 @@ class _TaskScreenState extends State<TaskScreen> {
                           fit: BoxFit.contain),
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12)),
-                  child: FlatButton(onPressed: () {
+                  child: TextButton(onPressed: () {
                     Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) => Gardener(fcm),
@@ -235,7 +235,7 @@ class _TaskScreenState extends State<TaskScreen> {
                           fit: BoxFit.contain),
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12)),
-                  child: FlatButton(onPressed: () {
+                  child: TextButton(onPressed: () {
                     Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) => Mason(fcm),
@@ -255,7 +255,7 @@ class _TaskScreenState extends State<TaskScreen> {
                           fit: BoxFit.contain),
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12)),
-                  child: FlatButton(onPressed: () {
+                  child: TextButton(onPressed: () {
                     Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) => Painting(fcm),
@@ -282,7 +282,7 @@ class _TaskScreenState extends State<TaskScreen> {
                           fit: BoxFit.contain),
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12)),
-                  child: FlatButton(onPressed: () {
+                  child: TextButton(onPressed: () {
                     Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) => Plumber(fcm),
@@ -302,7 +302,7 @@ class _TaskScreenState extends State<TaskScreen> {
                           fit: BoxFit.contain),
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(12)),
-                  child: FlatButton(onPressed: () {
+                  child: TextButton(onPressed: () {
                     Navigator.of(context).push(
                           MaterialPageRoute(
                             builder: (context) => Welder(fcm),

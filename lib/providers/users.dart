@@ -47,7 +47,7 @@ class Users with ChangeNotifier {
         'https://fyp-app-d6f4f-default-rtdb.firebaseio.com/users.json?auth=$authToken';
     try {
       print(authToken.toString());
-      final response = await http.get(url);
+      final response = await http.get(Uri.parse(url));
       final extractedData = json.decode(response.body) as Map<String, dynamic>;
       if (extractedData == null) {
         return;
@@ -86,7 +86,7 @@ class Users with ChangeNotifier {
         'https://fyp-app-d6f4f-default-rtdb.firebaseio.com/technicians.json?auth=$authToken';
     try {
       //  print(authToken.toString());
-      final response = await http.get(url);
+      final response = await http.get(Uri.parse(url));
       final extractedData = json.decode(response.body) as Map<String, dynamic>;
       if (extractedData == null) {
         return;
@@ -127,7 +127,7 @@ class Users with ChangeNotifier {
     var url =
         'https://fyp-app-d6f4f-default-rtdb.firebaseio.com/jobs.json?auth=$authToken';
     try {
-      final response = await http.get(url);
+      final response = await http.get(Uri.parse(url));
       final extractedData = json.decode(response.body) as Map<String, dynamic>;
       if (extractedData == null) {
         return;
@@ -219,7 +219,7 @@ class Users with ChangeNotifier {
         'https://fyp-app-d6f4f-default-rtdb.firebaseio.com/users/$id.json?auth=$authToken';
     try {
       final response = await http.put(
-        url,
+          Uri.parse(url),
         body: jsonEncode({
           'fullName': fullName,
           'phoneNumber': phoneNumber,
@@ -264,7 +264,7 @@ class Users with ChangeNotifier {
         'https://fyp-app-d6f4f-default-rtdb.firebaseio.com/jobs.json?auth=$authToken';
     try {
       final response = await http.post(
-        url,
+          Uri.parse(url),
         body: jsonEncode({
           'fullName': fullName,
           'phoneNumber': phoneNumber,
@@ -311,7 +311,7 @@ class Users with ChangeNotifier {
    final url = 'https://fyp-app-d6f4f-default-rtdb.firebaseio.com/technicians/$ide.json?auth=$authToken';
    try {
       final response = await http.patch(
-        url,
+          Uri.parse(url),
         body: jsonEncode({
           'arating': arating,
           'trating': trating,
@@ -329,7 +329,7 @@ class Users with ChangeNotifier {
    final url = 'https://fyp-app-d6f4f-default-rtdb.firebaseio.com/jobs/$ide.json?auth=$authToken';
    try {
       final response = await http.patch(
-        url,
+          Uri.parse(url),
         body: jsonEncode({
           'rating':true,
         }),

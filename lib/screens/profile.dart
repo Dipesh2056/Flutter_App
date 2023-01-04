@@ -73,7 +73,7 @@ class _ProfileCardState extends State<ProfileCard> {
         title: Text('An Error Occurred!'),
         content: Text(message),
         actions: <Widget>[
-          FlatButton(
+          TextButton(
             child: Text('Okay'),
             onPressed: () {
               Navigator.of(ctx).pop();
@@ -200,44 +200,49 @@ class _ProfileCardState extends State<ProfileCard> {
                           if (_isLoading)
                             CircularProgressIndicator()
                           else
-                            RaisedButton(
-                              child: Text('Submit'),
-                              onPressed: () {
-                                // print("fname" + _fullNameController.text);
-                                // print("phNum" + _phoneNumberController.text);
-                                // user.addUserData(authData.token, authData.userId, fullname, phoneNumber);
-                                user.addUserData(
-                                    this._token,
-                                    this.userId,
-                                    _fullNameController.text,
-                                    _phoneNumberController.text);
-
-                                showDialog(
-                                    context: context,
-                                    builder: (context) => AlertDialog(
-                                          title: Text('User Information'),
-                                          content: Text('Data Added!'),
-                                          actions: <Widget>[
-                                            FlatButton(
-                                              child: Text('Okay'),
-                                              onPressed: () {
-                                                Navigator.of(context).pop();
-                                              },
-                                            )
-                                          ],
-                                        ));
-                                //  Navigator.of(context).pop();
-                              },
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
+                            Padding(
                               padding: EdgeInsets.symmetric(
                                   horizontal: 30.0, vertical: 8.0),
-                              color: Theme.of(context).primaryColor,
-                              textColor: Theme.of(context)
-                                  .primaryTextTheme
-                                  .button
-                                  .color,
+
+                              child: ElevatedButton(
+                                child: Text('Submit',style: TextStyle(color: Theme.of(context)
+                                    .primaryTextTheme
+                                    .button
+                                    .color,
+                                backgroundColor:Theme.of(context).primaryColor, )
+                                ),
+                                onPressed: () {
+                                  // print("fname" + _fullNameController.text);
+                                  // print("phNum" + _phoneNumberController.text);
+                                  // user.addUserData(authData.token, authData.userId, fullname, phoneNumber);
+                                  user.addUserData(
+                                      this._token,
+                                      this.userId,
+                                      _fullNameController.text,
+                                      _phoneNumberController.text);
+
+                                  showDialog(
+                                      context: context,
+                                      builder: (context) => AlertDialog(
+                                            title: Text('User Information'),
+                                            content: Text('Data Added!'),
+                                            actions: <Widget>[
+                                              TextButton(
+                                                child: Text('Okay'),
+                                                onPressed: () {
+                                                  Navigator.of(context).pop();
+                                                },
+                                              )
+                                            ],
+                                          ));
+                                  //  Navigator.of(context).pop();
+                                },
+                                // shape: RoundedRectangleBorder(
+                                //   borderRadius: BorderRadius.circular(30),
+                                // ),
+
+
+                              ),
                             ),
                         ],
                       ),

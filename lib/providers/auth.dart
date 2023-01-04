@@ -3,8 +3,8 @@ import 'dart:async';
 
 import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
-import 'package:provider/provider.dart';
-import './users.dart';
+// import 'package:provider/provider.dart';
+// import './users.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../models/htttp_exception.dart';
 
@@ -37,7 +37,7 @@ class Auth with ChangeNotifier {
         'https://identitytoolkit.googleapis.com/v1/accounts:$urlSegment?key=AIzaSyCIUUkCXedfQHuctEvHZbcHIjxwUBJvOKs';
     try {
       final response = await http.post(
-        url,
+        Uri.parse(url),
         body: json.encode(
           {
             'email': email,

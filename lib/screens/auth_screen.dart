@@ -109,7 +109,7 @@ class _AuthCardState extends State<AuthCard> {
         title: Text('An Error Occurred!'),
         content: Text(message),
         actions: <Widget>[
-          FlatButton(
+          TextButton(
             child: Text('Okay'),
             onPressed: () {
               Navigator.of(ctx).pop();
@@ -250,25 +250,38 @@ class _AuthCardState extends State<AuthCard> {
                 if (_isLoading)
                   CircularProgressIndicator()
                 else
-                  RaisedButton(
-                    child:
-                        Text(_authMode == AuthMode.Login ? 'LOGIN' : 'SIGN UP'),
-                    onPressed: _submit,
-                    shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(30),
+                  Padding(
+                    padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 8.0),
+
+                    child: ElevatedButton(
+                      child:
+                          Text(_authMode == AuthMode.Login ? 'LOGIN' : 'SIGN UP',
+
+                            style:TextStyle(color: Theme.of(context).primaryTextTheme.button.color,
+                            backgroundColor:Theme.of(context).primaryColor, ),
+                            // shape: RoundedRectangleBorder(
+                            //   borderRadius: BorderRadius.circular(30),
+                            // ),
+                          ),
+                      onPressed: _submit,
+
+
                     ),
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 30.0, vertical: 8.0),
-                    color: Theme.of(context).primaryColor,
-                    textColor: Theme.of(context).primaryTextTheme.button.color,
                   ),
-                FlatButton(
-                  child: Text(
-                      '${_authMode == AuthMode.Login ? 'SIGNUP' : 'LOGIN'} INSTEAD'),
-                  onPressed: _switchAuthMode,
+                Padding(
                   padding: EdgeInsets.symmetric(horizontal: 30.0, vertical: 4),
-                  materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                  textColor: Theme.of(context).primaryColor,
+                     // materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                  child: TextButton(
+                    child: Text(
+                        '${_authMode == AuthMode.Login ? 'SIGNUP' : 'LOGIN'} INSTEAD',
+                      style: TextStyle(color: Theme.of(context).primaryColor ),
+                    ),
+                    onPressed: _switchAuthMode,
+
+                    // materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+
+
+                  ),
                 ),
               ],
             ),

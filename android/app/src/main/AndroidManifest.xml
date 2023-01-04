@@ -10,7 +10,7 @@
         android:label="final_year_project"
         android:icon="@mipmap/ic_launcher">
          <meta-data android:name="com.google.android.geo.API_KEY"
-               android:value="AIzaSyAa_sRc73Xar-mFlkaYiMPzXE6muybtn_s"/>
+               android:value="AIzaSyAyNbtYNH6gAAuF8wPQbbKIZnXXzPRdCxw"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

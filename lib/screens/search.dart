@@ -140,7 +140,7 @@ class _SearchState extends State<Search> {
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
-                                                FlatButton(
+                                                TextButton(
                                                   child: Text('Yes'),
                                                   onPressed: () {
                                                     user.addUJobData(
@@ -172,7 +172,7 @@ class _SearchState extends State<Search> {
                                                               content: Text(
                                                                   'Request Sent'),
                                                               actions: <Widget>[
-                                                                FlatButton(
+                                                                TextButton(
                                                                   child: Text(
                                                                       'Okay'),
                                                                   onPressed:
@@ -188,7 +188,7 @@ class _SearchState extends State<Search> {
                                                             ));
                                                   },
                                                 ),
-                                                FlatButton(
+                                                TextButton(
                                                   child: Text('No'),
                                                   onPressed: () {
                                                     Navigator.of(context).pop();

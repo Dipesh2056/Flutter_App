@@ -106,59 +106,68 @@ class _PlumberState extends State<Plumber> {
                           if (_isLoading)
                             CircularProgressIndicator()
                           else
-                            RaisedButton(
-                              child: Text('Submit'),
-                              onPressed: () async {
-                                if (authData.userId != null &&
-                                    user.userName != null &&
-                                    user.phoneNumber != null) {
-                                  await Provider.of<Users>(context).sortTechs(
-                                      lat: latitude,
-                                      long: longitude,
-                                      type: "Plumber");
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (context) => Search(
+                              Padding(
+                                padding: EdgeInsets.symmetric(
+                               horizontal: 30.0, vertical: 8.0),
+                                child: ElevatedButton(
+
+                                child: Text('Submit',
+
+                                  style: TextStyle(color:Theme.of(context)
+                                      .primaryTextTheme
+                                      .button
+                                      .color,
+                                  backgroundColor:Theme.of(context).primaryColor, ),
+
+                                ),
+                                onPressed: () async {
+                                  if (authData.userId != null &&
+                                      user.userName != null &&
+                                      user.phoneNumber != null) {
+                                    await Provider.of<Users>(context).sortTechs(
                                         lat: latitude,
                                         long: longitude,
-                                        type: 'Plumber',
-                                        address: _addressController.text,
-                                        description: _problemController.text,
-                                        username: user.userName,
-                                        phoneNumber: user.phoneNumber,
-                                        authToken: authData.token,
-                                        userId: authData.userId,
+                                        type: "Plumber");
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (context) => Search(
+                                          lat: latitude,
+                                          long: longitude,
+                                          type: 'Plumber',
+                                          address: _addressController.text,
+                                          description: _problemController.text,
+                                          username: user.userName,
+                                          phoneNumber: user.phoneNumber,
+                                          authToken: authData.token,
+                                          userId: authData.userId,
+                                        ),
                                       ),
-                                    ),
-                                  );
-                                } else
-                                  showDialog(
-                                      context: context,
-                                      builder: (context) => AlertDialog(
-                                            title: Text('Error'),
-                                            content: Text(
-                                                'Please Add your Data in Profile section '),
-                                            actions: <Widget>[
-                                              FlatButton(
-                                                child: Text('Okay'),
-                                                onPressed: () {
-                                                  Navigator.of(context).pop();
-                                                },
-                                              )
-                                            ],
-                                          ));
-                              },
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
-                              padding: EdgeInsets.symmetric(
-                                  horizontal: 30.0, vertical: 8.0),
-                              color: Theme.of(context).primaryColor,
-                              textColor: Theme.of(context)
-                                  .primaryTextTheme
-                                  .button
-                                  .color,
+                                    );
+                                  } else
+                                    showDialog(
+                                        context: context,
+                                        builder: (context) => AlertDialog(
+                                              title: Text('Error'),
+                                              content: Text(
+                                                  'Please Add your Data in Profile section '),
+                                              actions: <Widget>[
+                                                TextButton(
+                                                  child: Text('Okay'),
+                                                  onPressed: () {
+                                                    Navigator.of(context).pop();
+                                                  },
+                                                )
+                                              ],
+                                            ));
+                                },
+                                // shape: RoundedRectangleBorder(
+                                //   borderRadius: BorderRadius.circular(30),
+                                // ),
+
+
+
                             ),
+                              ),
                         ],
                       ),
                     ),

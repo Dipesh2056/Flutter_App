@@ -4,7 +4,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 
 import './location_helper.dart';
-import './maps_screen.dart';
+// import './maps_screen.dart';
 
 class LocationInput extends StatefulWidget {
   final Function onSelectPlace;
@@ -81,20 +81,20 @@ class _LocationInputState extends State<LocationInput> {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            FlatButton.icon(
+            TextButton.icon(
               icon: Icon(
                 Icons.location_on,
               ),
-              label: Text('Current Location'),
-              textColor: Theme.of(context).primaryColor,
+              label: Text('Current Location',
+              style:  TextStyle(color:Theme.of(context).primaryColor )),
               onPressed: _getCurrentUserLocation,
             ),
-            FlatButton.icon(
+            TextButton.icon(
               icon: Icon(
                 Icons.map,
               ),
-              label: Text('Select on Map'),
-              textColor: Theme.of(context).primaryColor,
+              label: Text('Select on Map',
+              style: TextStyle(color: Theme.of(context).primaryColor,)),
               onPressed: _selectOnMap,
             ),
           ],

@@ -106,70 +106,77 @@ class _GardenerState extends State<Gardener> {
                           if (_isLoading)
                             CircularProgressIndicator()
                           else
-                            RaisedButton(
-                              child: Text('Submit'),
-                              onPressed: () async {
-                                if (authData.userId != null ||
-                                    user.userName != null ||
-                                    user.phoneNumber != null) {
-                                  // user.addUJobData(
-                                  //   authData.token,
-                                  //   authData.userId,
-                                  //   user.userName,
-                                  //   user.phoneNumber,
-                                  //   _addressController.text,
-                                  //   _problemController.text,
-                                  //   fcm,
-                                  //   latitude,
-                                  //   longitude,
-                                  // );
-
-                                  await Provider.of<Users>(context).sortTechs(
-                                      lat: latitude,
-                                      long: longitude,
-                                      type: "Gardener");
-                                  Navigator.of(context).push(
-                                    MaterialPageRoute(
-                                      builder: (context) => Search(
-                                        lat: latitude,
-                                        long: longitude,
-                                        type: 'Gardener',
-                                        address: _addressController.text,
-                                        description: _problemController.text,
-                                        username: user.userName,
-                                        phoneNumber: user.phoneNumber,
-                                        authToken: authData.token,
-                                        userId: authData.userId,
-                                      ),
-                                    ),
-                                  );
-                                } else
-                                  showDialog(
-                                      context: context,
-                                      builder: (context) => AlertDialog(
-                                            title: Text('Error'),
-                                            content: Text(
-                                                'Please Add your Data in Profile section '),
-                                            actions: <Widget>[
-                                              FlatButton(
-                                                child: Text('Okay'),
-                                                onPressed: () {
-                                                  Navigator.of(context).pop();
-                                                },
-                                              )
-                                            ],
-                                          ));
-                              },
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(30),
-                              ),
+                            Padding(
                               padding: EdgeInsets.symmetric(
                                   horizontal: 30.0, vertical: 8.0),
-                              color: Theme.of(context).primaryColor,
-                              textColor: Theme.of(context)
-                                  .primaryTextTheme
-                                  .button
-                                  .color,
+
+                              child: ElevatedButton(
+                                child: Text('Submit',
+                                style: TextStyle(color: Theme.of(context)
+                                          .primaryTextTheme
+                                          .button
+                                          .color,
+
+
+                                backgroundColor:Theme.of(context).primaryColor, ),),
+                                onPressed: () async {
+                                  if (authData.userId != null ||
+                                      user.userName != null ||
+                                      user.phoneNumber != null) {
+                                    // user.addUJobData(
+                                    //   authData.token,
+                                    //   authData.userId,
+                                    //   user.userName,
+                                    //   user.phoneNumber,
+                                    //   _addressController.text,
+                                    //   _problemController.text,
+                                    //   fcm,
+                                    //   latitude,
+                                    //   longitude,
+                                    // );
+
+                                    await Provider.of<Users>(context).sortTechs(
+                                        lat: latitude,
+                                        long: longitude,
+                                        type: "Gardener");
+                                    Navigator.of(context).push(
+                                      MaterialPageRoute(
+                                        builder: (context) => Search(
+                                          lat: latitude,
+                                          long: longitude,
+                                          type: 'Gardener',
+                                          address: _addressController.text,
+                                          description: _problemController.text,
+                                          username: user.userName,
+                                          phoneNumber: user.phoneNumber,
+                                          authToken: authData.token,
+                                          userId: authData.userId,
+                                        ),
+                                      ),
+                                    );
+                                  } else
+                                    showDialog(
+                                        context: context,
+                                        builder: (context) => AlertDialog(
+                                              title: Text('Error'),
+                                              content: Text(
+                                                  'Please Add your Data in Profile section '),
+                                              actions: <Widget>[
+                                                TextButton(
+                                                  child: Text('Okay'),
+                                                  onPressed: () {
+                                                    Navigator.of(context).pop();
+                                                  },
+                                                )
+                                              ],
+                                            ));
+                                },
+                                // shape: RoundedRectangleBorder(
+                                //   borderRadius: BorderRadius.circular(30),
+                                // ),
+
+
+                              ),
                             ),
                         ],
                       ),
